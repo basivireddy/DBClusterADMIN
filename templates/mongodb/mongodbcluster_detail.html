@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}MongoDB {{ mongodbcluster.cname }}{% endblock %}
+{% block  mongodbcluster_active %}active{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="container">
+            <h2>{{ mongodbcluster.cname }}  set: {{  setname }} </h2>
+        <h4><b>Nodes</b></h4>
+        {% for i in nodes_details %}
+        <div class="table-responsive col-md-12">
+           <table class="table table-condensed" cellpadding="13">
+                 <tbody>
+                        <tr><td width="50%">{{i.0}}</td><td width="50%">{{i.1}}</td></tr>   
+
+                </tbody>
+            </table>
+        </div> 
+        {% endfor %}
+        
+
+        <h2> Cluser Status</h2>
+        <div class="table-responsive col-md-12">
+            <table class="table table-condensed">
+                          <thead>
+                          <tr>
+                             <td>parameters</td>
+                              {% for i in nodes %}
+                                <td>{{ i }} </td> 
+                              {% endfor %}
+                          </tr>
+                          </thead>
+                          <tbody>
+                           
+                           {% for k,v in cluster_deatils.items %}
+                              <tr>
+                                <td>{{ k }}</td>
+                                {% for i in v %}
+                                    <td>{{ i }}</td>
+                                {% endfor %}
+                                
+
+                              </tr>
+                          {% endfor %}
+                       
+
+
+
+                          </tbody>
+            </table>
+
+        </div>
+        
+
+        </div>
+
+
+         </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

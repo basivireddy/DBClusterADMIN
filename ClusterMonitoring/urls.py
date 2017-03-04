@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^mysql/', include('mysql.urls')),
     url(r'^couchdb/', include('couchdb.urls')),
     url(r'^etcd/', include('etcd.urls')),
-]
+    url(r'^mongodb/', include('mongodb.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+
 
