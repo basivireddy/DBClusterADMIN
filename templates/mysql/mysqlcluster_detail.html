@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Couch {{ mysqlcluster.name }}{% endblock %}
+{% block  mysqlcluster_active %}active{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="container">
+            <h2>{{ mysqlcluster.name }} :{{ mysqlcluster.haport }}</h2>
+        <h4><b>Nodes</b></h4>
+        {% for i in nodes_details %}
+        <div class="table-responsive col-md-12">
+           <table class="table table-condensed" cellpadding="13">
+                 <tbody>
+                        <tr><td width="50%">{{i.0}}</td><td width="50%">{{i.1}}</td></tr>   
+
+                </tbody>
+            </table>
+        </div> 
+        {% endfor %}
+        <h4><b>Slaves</b></h4>
+        <div class="table-responsive col-md-12">
+        <table class="table table-condensed">
+        <tbody>
+        {% if slave_details %}
+          {% for k,v in slave_details.items %} 
+            
+            <tr>{{k}}</tr>
+            <tr><td>
+             {% for i,j in v.items %}
+               <td>{{i}}</td><td>{{j}}
+             {% if j == True %}
+                  <a href="#" ><span class="glyphicon glyphicon-ok"></span></a>
+                {% elif  v == False %}
+                   <a href="#" ><span class="glyphicon glyphicon-remove"></span></a>
+              {% endif %} 
+
+              {% endfor%}
+
+             </td></tr>   
+            {% endfor%}
+         {% else %}
+           <tr><td><h5>No slaves</h5></td></tr>
+
+         {% endif %}
+
+
+        </tbody>
+        </table>
+        </div>  
+
+
+        <h2> Cluser Status</h2>
+        <div class="table-responsive col-md-12">
+            <table class="table table-condensed">
+                          <thead>
+                          <tr>
+                             <td>parameters</td>
+                              {% for i in nodes %}
+                                <td>{{ i }} </td> 
+                              {% endfor %}
+                          </tr>
+                          </thead>
+                          <tbody>
+                           
+                           {% for k,v in cluster_deatils.items %}
+                              <tr>
+                                <td>{{ k }}</td>
+                                {% for i in v %}
+                                    <td>{{ i }}</td>
+                                {% endfor %}
+                                
+
+                              </tr>
+                          {% endfor %}
+                       
+
+
+
+                          </tbody>
+            </table>
+
+        </div>
+        
+
+        </div>
+
+
+         </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

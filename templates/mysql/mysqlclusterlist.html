@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Mysql Clusters{% endblock %}
+{% block  mysqlcluster_active %}active{% endblock %}
+
+{% block body %}
+    <div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-2">
+            <h3><span class="label label-default">Mysql Clusters</span> <span class="badge">{{ clusterslist|length }}</span></h3>
+        </div>
+        <div class="col-sm-9">
+            <h3><a href="{% url 'mysql:create_mysqlcluster'   %}" class="btn btn-success btn-sm" role="button">ADD New Mysql Cluster</a></h3>
+        </div>
+        {% if clusterslist %}
+            {% for mysqlcluster in clusterslist %}
+                <div class="col-sm-7 col-lg-4">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h4><b>{{ mysqlcluster.name }}</b><span class="badge">{{ mysqlcluster.numofnodes }}</span> </h4>
+                            <h4>Nodes : {{ mysqlcluster.names }}</h4>
+                            <h4>Slaves : {{ mysqlcluster.slavenames }}</h4>
+                            <h4>Port : {{ mysqlcluster.haport }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'mysql:mysqlcluster_detail'  mysqlcluster.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+
+        {% endif %}
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+</body>
+</html>
