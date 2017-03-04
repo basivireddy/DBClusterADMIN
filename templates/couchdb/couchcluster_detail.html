@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block title %}Couch {{ couchcluster.name }}{% endblock %}
+{% block  couchcluster_active %}active{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="container">
+        
+
+
+
+            <h2>{{ couchcluster.name }} :{{ couchcluster.haport }}</h2> 
+            </br>
+            <ui>
+                <li>
+                {{ comdbs.message }} 
+                {% if comdbs.status == 0 %}
+                  <a href="#" ><span class="glyphicon glyphicon-ok"></span></a>
+                {% else %}
+                   <a href="#" ><span class="glyphicon glyphicon-remove"></span></a>
+                {% endif %} 
+
+                </li>
+
+                
+                <li>
+                {{ comdbs.docmessage }}
+                {% if comdbs.docstatus == 0 %}
+                  <a href="#" ><span class="glyphicon glyphicon-ok"></span></a>
+                {% else %}
+                   <a href="#" ><span class="glyphicon glyphicon-remove"></span></a>
+                {% endif %} 
+                </li>
+            </ui>
+                
+            
+                    {% if comdbs.a2  or comdbs.a1 %}
+            <h2>Extra Dbs</h2>
+            <div class="table-responsive col-md-12">
+            <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>{{ ip1 }}</th>
+                            <th>{{ ip2 }}</th>
+                          </tr>
+                        </thead>
+
+                        </tbody>
+                        <tr>
+                        <td>
+                          {% if comdbs.a2 %}
+                          <ui>
+                          {% for db in comdbs.a2 %}
+                              <li>{{ db }}</li>
+
+
+                          {% endfor %}
+                          </ui>
+                          {% endif %}
+
+                        </td>
+                        <td>
+                          {% if comdbs.a1 %}
+                          <ui>
+                          {% for db in comdbs.a1 %}
+                              <li>{{ db }}</li>
+
+
+                          {% endfor %}
+                          </ui>
+                          {% endif %}
+                         </td>
+                         </tr>
+
+
+                          </tbody>
+                      </table>
+                 </div>
+
+           {% endif %}
+
+            <h2> Common Databases </h2>
+            <div class="table-responsive col-md-12">
+                        <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>dbname</th>
+                            <th>{{ ip1 }}</th>
+                            <th>{{ ip2 }}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for key, value in comdbs.docs.cd1.items %}
+
+                            <tr>
+                            <td>{{ key }}</td>
+                            <td>{{ value.0 }}</td>
+                            <td>{{ value.1 }}</td>
+                            <td>
+                              {% if value.2 %}
+                                <a href="#" ><span class="glyphicon glyphicon-ok"></span></a>
+                              {% else %}
+                                <a href="#" ><span class="glyphicon glyphicon-remove"></span></a>
+                              {% endif %} 
+                          </td>
+                          </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                      </table>
+                    </div>
+
+
+
+         </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
