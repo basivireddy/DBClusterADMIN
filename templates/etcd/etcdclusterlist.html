@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Etcd Clusters{% endblock %}
+{% block  etcdcluster_active %}active{% endblock %}
+
+{% block body %}
+    <div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-2">
+            <h3><span class="label label-default">Etcd Clusters</span> <span class="badge">{{ clusterslist|length }}</span></h3>
+        </div>
+        <div class="col-sm-9">
+            <h3><a href="{% url 'etcd:create_etcdcluster'   %}" class="btn btn-success btn-sm" role="button">ADD New Etcd Cluster</a></h3>
+        </div>
+        {% if clusterslist %}
+            {% for etcdcluster in clusterslist %}
+                <div class="col-sm-5 col-lg-4">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h4>{{ etcdcluster.name }}</h4>
+                            <h4>{{ etcdcluster.ips }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'etcd:etcdcluster_detail'  etcdcluster.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                            <!-- Delete Album -->
+                            <form action="#" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="etcdcluster_id" value="{{ etcdcluster.id }}" />
+                                <button type="submit" class="btn btn-default disabled">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        {% else %}
+
+        {% endif %}
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+</body>
+</html>

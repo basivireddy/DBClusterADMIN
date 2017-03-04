@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^mysql/', include('mysql.urls')),
     url(r'^couchdb/', include('couchdb.urls')),
+    url(r'^etcd/', include('etcd.urls')),
 ]
 

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Couch {{ etcdcluster.name }}{% endblock %}
+{% block  etcdcluster_active %}active{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="container">
+
+            <h2>ETCD Cluster : {{ etcdcluster.name }}</h2>
+
+            {% for node in  cluster_deatils  %}
+
+                 <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th><h3>{{ node.0 }} <a class="btn btn-primary" href="http://{{ node.0 }}:{{ etcdcluster.clientport }}/version" target="_blank">version</a> <a class="btn btn-primary" href="http://{{ node.0 }}:{{ etcdcluster.clientport }}/v2/keys" target="_blank">Keys</a></h3></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if node.2 == 1 %}
+                <tr>
+                       <td class="alert alert-danger">{{ node.1 }}</td>
+                </tr>
+
+                    </tr>
+                    <tr class="info"><td>Instructions to start node :Run on {{ node.0 }}</td></tr>
+                    <tr class="info"><td><textarea  class="form-control col-xs-12" rows="4">{{ node.3 }}</textarea></td></tr>
+                {% else %}
+                <tr>
+                <td class="success">{{ node.4 }}</td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        {% for j in node.1 %}
+
+
+                            <table class="table table-condensed"><tbody>
+
+                            <tr><td
+                            {% if j.1 == 1 %}
+                                class="danger"
+                            {% else %}
+                                class="success"
+                            {% endif %}
+                            >{{ j.0 }}</td><td>{{ j.2 }}</td></tr>
+
+                            </tbody></table>
+                        {% endfor %}
+
+
+
+                    </td>
+
+                </tr>
+            </tbody>
+            </table>
+                {% endif %}
+
+            {% endfor %}
+
+
+
+
+
+         </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

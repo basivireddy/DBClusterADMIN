@@ -31,7 +31,8 @@
         <div class="collapse navbar-collapse" id="topNavBar">
             <ul class="nav navbar-nav nav-stacked">
                 <li class="{% block mysqlcluster_active %}{% endblock %}"><a href="{% url 'mysql:mysqlclusterlist'  %}">&nbsp; MySQL</a></li>
-                <li class="{% block couchdbcluster_active %}{% endblock %}"><a href="{% url 'couchdb:couchdbclusterlist'  %}">&nbsp; MySQL</a></li>
+                <li class="{% block couchdbcluster_active %}{% endblock %}"><a href="{% url 'couchdb:couchdbclusterlist'  %}">&nbsp;CouchDB</a></li>
+                <li class="{% block etcdcluster_active %}{% endblock %}"><a href="{% url 'etcd:etcdclusterlist'  %}">&nbsp; Etcd</a></li>
 
 
             </ul>
