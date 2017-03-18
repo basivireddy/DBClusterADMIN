@@ -31,5 +31,5 @@ It's a administration and monitoring tool for etcd,couchdb,mysql and mongodb clu
 ```
    python manage.py runserver 0.0.0.0:8000
 ```
-then browse ***http://your_server_ip:8000/***
+then browse ***http://your_server_ip:8000/etcd/***
 
