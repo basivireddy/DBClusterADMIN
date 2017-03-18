@@ -1,5 +1,5 @@
 # Cluster ADMIN
-It's a administaration and monitoring tool for etcd,couchdb,mysql and mongodb.
+It's a administration and monitoring tool for etcd,couchdb,mysql and mongodb clusters.
 
 ## ScreenShot: ##
 
