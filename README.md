@@ -30,9 +30,9 @@ MySQL
     source ENV/bin/activate
 ```
 
-### Download MusicBox
+### Download ClusterADMIN
 ```
-    git clone https://basivireddy@bitbucket.org/basivireddy/clustermonitoring.git
+    git clone https://github.com/basivireddy/ClusterADMIN.git
 ```
 
 ### Install  required packages
