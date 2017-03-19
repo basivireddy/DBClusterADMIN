@@ -1,6 +1,10 @@
 # Cluster ADMIN
 An Administration and Monitoring tool for Etcd, CouchDB, MySQL and MongoDB clusters.
 
+[**Installation Instructions**](#installation) 
+
+------
+
 ## ScreenShot: ##
 Etcd
 ![ScreenShot](ScreenShots/etcdcluster.png)
