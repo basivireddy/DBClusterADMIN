@@ -1,10 +1,21 @@
 # Cluster ADMIN
-It's a administration and monitoring tool for etcd,couchdb,mysql and mongodb clusters.
+An Administration and Monitoring tool for Etcd, CouchDB, MySQL and MongoDB clusters.
 
 ## ScreenShot: ##
-
-![ScreenShot]()
-
+Etcd
+![ScreenShot](ScreenShots/etcdcluster.png)
+When One of Node down
+![ScreenShot](ScreenShots/etcdclusteronenodedown.png)
+CouchDB
+![ScreenShot](ScreenShots/couchdbcluster1.png)
+When Cluster have different databases
+![ScreenShot](ScreenShots/couchdbcluster2.png)
+When Cluster have different databases and different doc's in databases
+![ScreenShot](ScreenShots/couchdbcluster3.png)
+MongoDB
+![ScreenShot](ScreenShots/mongodbcluster.png)
+MySQL
+![ScreenShot](ScreenShots/mysqlcluster.png)
 -------
 
 ## Installation
