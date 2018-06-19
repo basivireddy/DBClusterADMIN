@@ -1,7 +1,7 @@
 # Cluster ADMIN
 An Administration and Monitoring tool for Etcd, CouchDB, MySQL and MongoDB clusters.
 
-[**Installation Instructions**](#installation) 
+[**Installation Instructions**](#installation) |  [**Docker**](#docker)
 
 ------
 
@@ -22,6 +22,13 @@ MySQL
 ![ScreenShot](ScreenShots/mysqlcluster.png)
 -------
 
+## Docker
+
+```
+docker run -it -d --name dbclusteradmin basivireddy/dbclusteradmin:latest
+
+```
+ 
 ## Installation
 
 ### Create virtual environment and activate(optional)
