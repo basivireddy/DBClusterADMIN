@@ -1,4 +1,4 @@
-# Cluster ADMIN
+# DBCluster ADMIN
 An Administration and Monitoring tool for Etcd, CouchDB, MySQL and MongoDB clusters.
 
 [**Installation Instructions**](#installation) |  [**Docker**](#docker)
@@ -26,7 +26,6 @@ MySQL
 
 ```
 docker run -it -d --name dbclusteradmin basivireddy/dbclusteradmin:latest
-
 ```
  
 ## Installation
@@ -37,16 +36,16 @@ docker run -it -d --name dbclusteradmin basivireddy/dbclusteradmin:latest
     source ENV/bin/activate
 ```
 
-### Download ClusterADMIN
+### Download DBClusterADMIN
 ```
-    git clone https://github.com/basivireddy/ClusterADMIN.git
+    git clone https://github.com/basivireddy/DBClusterADMIN.git
 ```
 
 ### Install  required packages
 ```
    apt-get install python-pip
    apt-get install python-dev libmysqlclient-dev
-   cd clustermonitoring
+   cd DBClusterADMIN
    pip install -r requirements.txt
 ```
 ### Run the server
